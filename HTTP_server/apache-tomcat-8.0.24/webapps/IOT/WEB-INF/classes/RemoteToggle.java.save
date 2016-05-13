@@ -1,0 +1,61 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.sql.*;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/remotetoggle")
+public class RemoteToggle extends HttpServlet  {
+	Connection c = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException 
+{
+
+
+    String Zone = request.getParameter("Zone");
+    String ApplianceType = request.getParameter("ApplianceType");
+    String ApplianceName = request.getParameter("ApplianceName");
+    String hostname=request.getParameter("Hostname");
+    try
+	{ 
+			Class.forName("com.mysql.jdbc.Driver");
+	
+	c = DriverManager.getConnection("jdbc:mysql://localhost:3306/wifidevices","root","raspberry");  
+		stmt=c.createStatement();
+
+		String sql ="SELECT Mac,Ip FROM keepalive;";
+
+		rs = stmt.executeQuery(sql);
+                    
+        while(rs.next())
+        {
+        	String Mac=rs.getString("Mac");
+        	if(hostname.equals(Mac))
+        	{
+        	String Ip=rs.getString("Ip");
+        	System.out.println(Mac+"\n"+Ip);
+        	String url = "http://"+Ip+"/plug/on";
+    		URL obj = new URL(url);
+    		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+            con.setRequestMethod("GET");
+            }
+        	else
+        	{
+        		System.out.println("Unknown device requested to toggle ");
+        	}
+        }
+	}
+    catch(Exception e)
+    {
+    	
+    }
+    
+   }
+}

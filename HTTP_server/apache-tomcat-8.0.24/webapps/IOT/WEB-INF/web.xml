@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app version="3.0"
+  xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+ 
+   <!-- To save as "hello\WEB-INF\web.xml" -->
+ 
+   <servlet>
+      <servlet-name>ServletTest</servlet-name>
+      <servlet-class>ServletTest</servlet-class>
+   </servlet>
+ 
+   <!-- Note: All <servlet> elements MUST be grouped together and
+         placed IN FRONT of the <servlet-mapping> elements -->
+ 
+   <servlet-mapping>
+      <servlet-name>ServletTest</servlet-name>
+      <url-pattern>/ResendingTOCOAP</url-pattern>
+   </servlet-mapping>
+
+
+<servlet>
+      <servlet-name>CoAPClient_RMIClient</servlet-name>
+      <servlet-class>ReceiveMessageInterface.CoAPClient_RMIClient</servlet-class>
+   </servlet>
+
+   <!-- Note: All <servlet> elements MUST be grouped together and
+         placed IN FRONT of the <servlet-mapping> elements -->
+
+   <servlet-mapping>
+      <servlet-name>CoAPClient_RMIClient</servlet-name>
+      <url-pattern>/ResendingTOCOAP1</url-pattern>
+   </servlet-mapping>
+
+
+
+<servlet>
+      <servlet-name>ServletMysqlMapping</servlet-name>
+      <servlet-class>ServletMysqlMapping</servlet-class>
+   </servlet>
+
+   <!-- Note: All <servlet> elements MUST be grouped together and
+         placed IN FRONT of the <servlet-mapping> elements -->
+
+   <servlet-mapping>
+      <servlet-name>ServletMysqlMapping</servlet-name>
+      <url-pattern>/register</url-pattern>
+   </servlet-mapping>
+ 
+
+<servlet>
+      <servlet-name>ServletToggle</servlet-name>
+      <servlet-class>ServletToggle</servlet-class>
+   </servlet>
+
+   <!-- Note: All <servlet> elements MUST be grouped together and
+         placed IN FRONT of the <servlet-mapping> elements -->
+
+   <servlet-mapping>
+      <servlet-name>ServletToggle</servlet-name>
+      <url-pattern>/toggle</url-pattern>
+</servlet-mapping>
+<servlet>
+      <servlet-name>GetSSID</servlet-name>
+      <servlet-class>GetSSID</servlet-class>
+   </servlet>
+
+   <!-- Note: All <servlet> elements MUST be grouped together and
+         placed IN FRONT of the <servlet-mapping> elements -->
+
+   <servlet-mapping>
+      <servlet-name>GetSSID</servlet-name>
+      <url-pattern>/getssid</url-pattern>
+   </servlet-mapping>
+
+<servlet>
+      <servlet-name>ListSSID</servlet-name>
+      <servlet-class>ListSSID</servlet-class>
+   </servlet>
+
+   <!-- Note: All <servlet> elements MUST be grouped together and
+         placed IN FRONT of the <servlet-mapping> elements -->
+
+   <servlet-mapping>
+      <servlet-name>ListSSID</servlet-name>
+      <url-pattern>/listssid</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+      <servlet-name>RemoteToggle</servlet-name>
+      <servlet-class>RemoteToggle</servlet-class>
+   </servlet>
+
+   <!-- Note: All <servlet> elements MUST be grouped together and
+         placed IN FRONT of the <servlet-mapping> elements -->
+
+   <servlet-mapping>
+      <servlet-name>RemoteToggle</servlet-name>
+      <url-pattern>/remotetoggle</url-pattern>
+</servlet-mapping>
+
+
+
+<welcome-file-list>
+        <welcome-file>text.jsp</welcome-file>
+        <welcome-file>toggle.jsp</welcome-file>
+<welcome-file>getSSID.jsp</welcome-file>        
+
+</welcome-file-list>
+
+</web-app>

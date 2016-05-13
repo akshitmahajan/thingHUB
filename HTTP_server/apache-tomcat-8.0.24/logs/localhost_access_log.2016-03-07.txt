@@ -1,0 +1,4 @@
+192.168.0.104 - - [07/Mar/2016:10:05:45 +0000] "GET /IOT/wifidevice.jsp HTTP/1.1" 200 425
+192.168.0.104 - - [07/Mar/2016:10:06:31 +0000] "GET /IOT/wifidevice?wifidevice=HALL&zone=HALL&restype=AC HTTP/1.1" 404 1022
+192.168.0.104 - - [07/Mar/2016:10:06:39 +0000] "GET /IOT/wifidevice.jsp HTTP/1.1" 200 425
+192.168.0.104 - - [07/Mar/2016:10:06:52 +0000] "GET /IOT/wifidevice?wifidevice=&zone=&restype= HTTP/1.1" 404 1022

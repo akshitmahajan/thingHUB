@@ -1,0 +1,32 @@
+
+<html>
+<head >
+    <title></title>
+</head>
+<body>
+    <form action="remotetoggle" method="post">
+    <div>
+    
+        <Label>Zone</Label>
+        <input type="text" name="Zone">
+        <br />
+        <br />
+        <br />
+        <Label>ApplianceType</Label>
+        <input type="text" name="ApplianceType">
+        <br />
+        <br />
+        <Label >ApplianceName</Label>
+        <input type="text" name="ApplianceName">
+        <br />
+        <br />
+        <Label>Hostname</Label>
+        <input type="text" name="Hostname">
+        <br />
+        <br />
+        <input type="submit" value="Toggle">    
+    </div>
+    </form>
+</body>
+</html>
+

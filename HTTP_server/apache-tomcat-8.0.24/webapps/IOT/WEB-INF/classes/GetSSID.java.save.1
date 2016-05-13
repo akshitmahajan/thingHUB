@@ -1,0 +1,42 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.sql.*;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/getssid")
+public class GetSSID extends HttpServlet  {
+	Connection c = null;
+    Statement stmt = null;
+
+protected void doGet(HttpServletRequest request,
+               HttpServletResponse response)
+ throws ServletException, IOException {
+
+doPost(request,response);
+}
+
+
+
+protected void doPost(HttpServletRequest request,
+               HttpServletResponse response)
+ throws ServletException, IOException {
+String ssid = request.getParameter("ssid");
+String ssidpwd = request.getParameter("ssidpwd");
+
+String registeringSSID = "ctrl_interface=DIR=/var/run/wpa_supplicant 
+GROUP=netdev\nupdate_config=1\nnetwork={\nssid=\""+ssid+"\"\npsk=\""+ssidpwd+"\"\n}"; File file = new 
+File("/etc/wpa_supplicant/wpa_supplicant.conf"); PrintWriter out=response.getWriter(); out.print("Your SSID and 
+Password " +ssid+"\t" +ssidpwd );
+                        if (!file.exists())}
+                        {}
+                           file.createNewFile();
+                        }
+                        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+                        BufferedWriter bw = new BufferedWriter(fw);
+                        bw.write(registeringSSID);
+                        bw.close();
+                        System.out.println("Done");
